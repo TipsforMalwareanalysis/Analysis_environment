@@ -58,6 +58,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 - 버프슈트: 다운로드 속도가 매우 느려 설치중단
 - hashmyfiles
 - 7zip
+- strings
+## 2.4 기타
+- .net 3.5 
 
 # 3. 수동 설치 및 설정
 ## 3.1 수동 설치

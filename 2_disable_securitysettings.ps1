@@ -22,3 +22,7 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v Hi
 
 # 한국시간 설정
 Set-TimeZone -Id "Korea Standard Time"
+
+# 숨겨진 파일/디렉터리 보기설정(재부팅 필요)
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v Hidden /t REG_DWORD /d 1 /f
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v ShowSuperHidden /t REG_DWORD /d 1 /f

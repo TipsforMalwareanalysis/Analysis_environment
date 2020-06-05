@@ -77,3 +77,9 @@ choco install hashmyfiles -y
 
 # 7zip
 choco install 7zip.install -y
+
+# .net 3.5
+choco install dotnet3.5
+
+# strings
+choco install strings
