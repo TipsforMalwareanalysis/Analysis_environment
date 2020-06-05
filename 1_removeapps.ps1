@@ -47,22 +47,29 @@ Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage
 Get-AppxPackage *DisneyMagicKingdom* | Remove-AppxPackage
 Get-AppxPackage *HiddenCityMysteryofShadows* | Remove-AppxPackage
 Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage
-get-appxpackage *Microsoft.WindowsCamera* | remove-appxpackage
-get-appxpackage *Microsoft.Wallet* | remove-appxpackage
-get-appxpackage *Microsoft.Windows.Photos* | remove-appxpackage
-get-appxpackage *Microsoft.Print3D* | remove-appxpackage
-get-appxpackage *Microsoft.YourPhone* | remove-appxpackage
-get-appxpackage *Microsoft.Wallet* | remove-appxpackage
-get-appxpackage *Microsoft.ScreenSketch* | remove-appxpackage
-get-appxpackage *Microsoft.Print3D* | remove-appxpackage
-get-appxPackage Microsoft.MixedReality.Portal | remove-appxPackage
-get-appxPackage Microsoft.BingNews | remove-appxPackage
-get-appxPackage *Todos* | remove-appxPackage
-get-appxPackage *Microsoft.Whiteboard* | remove-appxPackage
-get-appxpackage *sway* | remove-appxpackage
-get-appxpackage *Microsoft.RemoteDesktop* | remove-appxpackage
-get-appxpackage *Microsoft.GetHelp* | remove-appxpackage
-get-appxpackage *Microsoft.MSPaint*  | remove-appxpackage
-Get-ProvisionedAppxPackage -Online | Where-Object { $_.PackageName -match "xbox" } | ForEach-Object { Remove-ProvisionedAppxPackage -Online -AllUsers -PackageName $_.PackageName }
-taskkill /f /im OneDrive.exe
-C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
+Get-AppxPackage *Microsoft.WindowsCamera* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Wallet* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Windows.Photos* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Print3D* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.YourPhone* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Wallet* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.ScreenSketch* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Print3D* | Remove-AppxPackage
+Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
+Get-AppxPackage *Todos* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.Whiteboard* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.RemoteDesktop* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.MSPaint*  | Remove-AppxPackage
+Get-AppxPackage *Microsoft.NetworkSpeedTest*  | Remove-AppxPackage
+Get-AppxPackage *Microsoft.OfficeLens*  | Remove-AppxPackage
+
+
+try{
+    Get-ProvisionedAppxPackage -Online | Where-Object { $_.PackageName -match "xbox" } | ForEach-Object { Remove-ProvisionedAppxPackage -Online -AllUsers -PackageName $_.PackageName }
+    taskkill /f /im OneDrive.exe
+    C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
+}catch [Exception] {
+    throw
+}
